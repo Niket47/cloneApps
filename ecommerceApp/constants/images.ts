@@ -10,4 +10,11 @@ export const images = {
     iconBagFilled:require("../assets/icons/bagFilled.png"),
     iconProfileFilled:require("../assets/icons/profileFilled.png"),
     iconProfile:require("../assets/icons/profile.png"),
+    bannerImage:require("../assets/images/banner.png"),
+    iconSort:require("../assets/icons/sort.png"),
+    iconRow:require("../assets/icons/row.png"),
+    iconSwap:require("../assets/icons/swap.png"),
+    iconGrid:require("../assets/icons/grid.png"),
+    iconBack:require("../assets/icons/back.png"),
+    iconSearch:require("../assets/icons/search.png"),
 }
