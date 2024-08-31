@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import ECommerceRoot from './ecommerceApp/root'
+import RootNavigation from '../navigations'
 
-const App = () => {
+const ECommerceRoot = () => {
   return (
     <View style={{ flex: 1 }}>
-      <ECommerceRoot />
+      <RootNavigation />
     </View>
   )
 }
 
-export default App
+export default ECommerceRoot
 
 const styles = StyleSheet.create({})
