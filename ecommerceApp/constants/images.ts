@@ -17,4 +17,6 @@ export const images = {
     iconGrid:require("../assets/icons/grid.png"),
     iconBack:require("../assets/icons/back.png"),
     iconSearch:require("../assets/icons/search.png"),
+    iconStarYellow:require("../assets/icons/starYellow.png"),
+    iconStar:require("../assets/icons/star.png"),
 }

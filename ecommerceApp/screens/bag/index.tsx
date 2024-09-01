@@ -1,14 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Button, FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
+
 
 const Bag = () => {
+
   return (
-    <View>
-      <Text>Bag</Text>
-    </View>
+    <SafeAreaView>
+    
+
+
+    </SafeAreaView>
   )
 }
 
 export default Bag
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  
+})

@@ -19,9 +19,9 @@ export const shopStyles = StyleSheet.create({
         elevation: 4,
         backgroundColor: Colors.white
     },
-    container:{
+    container: {
         paddingHorizontal: 15,
         borderBottomWidth: 0.5,
-        borderColor: Colors.gray
+        borderColor: Colors.gray,
     }
 })

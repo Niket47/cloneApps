@@ -30,7 +30,7 @@ const RootNavigation = () => {
                 <View>
                   <Image source={focused ? images.iconHomeFilled : images.iconHome} style={{
                     height: normalize(21), width: normalize(21)
-                  }} />
+                  }} resizeMode='contain' />
                 </View>
               )
             }
@@ -42,7 +42,7 @@ const RootNavigation = () => {
                 <View>
                   <Image source={focused ? images.iconCartFilled : images.iconCart} style={{
                     height: normalize(21), width: normalize(21)
-                  }} />
+                  }} resizeMode='contain' />
                 </View>
               )
             }
@@ -55,7 +55,7 @@ const RootNavigation = () => {
                 <View>
                   <Image source={focused ? images.iconBagFilled : images.iconBag} style={{
                     height: normalize(21), width: normalize(21)
-                  }} />
+                  }} resizeMode='contain' />
                 </View>
               )
             }
@@ -68,7 +68,7 @@ const RootNavigation = () => {
                 <View>
                   <Image source={focused ? images.iconHeartFilled : images.iconHeart} style={{
                     height: normalize(21), width: normalize(21)
-                  }} />
+                  }} resizeMode='contain' />
                 </View>
               )
             }
@@ -80,7 +80,7 @@ const RootNavigation = () => {
                 <View>
                   <Image source={focused ? images.iconProfileFilled : images.iconProfile} style={{
                     height: normalize(21), width: normalize(21)
-                  }} />
+                  }} resizeMode='contain' />
                 </View>
               )
             }

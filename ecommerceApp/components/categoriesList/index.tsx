@@ -37,7 +37,7 @@ export default CategoriesList
 const styles = StyleSheet.create({
     container: {
         backgroundColor: Colors.black,
-        paddingVertical: 10,
+        paddingVertical: 7,
         paddingHorizontal: 20,
         marginRight: 10,
         borderRadius: 50
