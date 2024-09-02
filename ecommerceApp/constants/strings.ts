@@ -42,7 +42,7 @@ export const data: Product[] = [
         title: 'Product 2',
         description: 'Description for Product 2',
         price: '$29.99',
-        imageUrl: 'https://example.com/product2.jpg',
+        imageUrl: require("../assets/images/banner.png"),
         rating: 4.2,
     },
     {
@@ -50,7 +50,7 @@ export const data: Product[] = [
         title: 'Product 3',
         description: 'Description for Product 3',
         price: '$24.99',
-        imageUrl: 'https://example.com/product3.jpg',
+        imageUrl: require("../assets/images/banner.png"),
         rating: 4.8,
     },
     {
@@ -58,7 +58,7 @@ export const data: Product[] = [
         title: 'Product 4',
         description: 'Description for Product 4',
         price: '$39.99',
-        imageUrl: 'https://example.com/product4.jpg',
+        imageUrl: require("../assets/images/banner.png"),
         rating: 4.0,
     },
     {
@@ -66,7 +66,7 @@ export const data: Product[] = [
         title: 'Product 5',
         description: 'Description for Product 5',
         price: '$49.99',
-        imageUrl: 'https://example.com/product5.jpg',
+        imageUrl: require("../assets/images/banner.png"),
         rating: 4.7,
     },
     {
@@ -74,7 +74,7 @@ export const data: Product[] = [
         title: 'Product 6',
         description: 'Description for Product 6',
         price: '$14.99',
-        imageUrl: 'https://example.com/product6.jpg',
+        imageUrl: require("../assets/images/banner.png"),
         rating: 4.3,
     },
     {
@@ -82,7 +82,7 @@ export const data: Product[] = [
         title: 'Product 7',
         description: 'Description for Product 7',
         price: '$34.99',
-        imageUrl: 'https://example.com/product7.jpg',
+        imageUrl: require("../assets/images/banner.png"),
         rating: 4.6,
     },
     {
@@ -90,7 +90,7 @@ export const data: Product[] = [
         title: 'Product 8',
         description: 'Description for Product 8',
         price: '$27.99',
-        imageUrl: 'https://example.com/product8.jpg',
+        imageUrl: require("../assets/images/banner.png"),
         rating: 4.1,
     },
     {
@@ -98,7 +98,7 @@ export const data: Product[] = [
         title: 'Product 9',
         description: 'Description for Product 9',
         price: '$22.99',
-        imageUrl: 'https://example.com/product9.jpg',
+        imageUrl: require("../assets/images/banner.png"),
         rating: 4.4,
     },
     {
@@ -106,7 +106,7 @@ export const data: Product[] = [
         title: 'Product 10',
         description: 'Description for Product 10',
         price: '$31.99',
-        imageUrl: 'https://example.com/product10.jpg',
+        imageUrl: require("../assets/images/banner.png"),
         rating: 4.9,
     },
     {
@@ -114,7 +114,7 @@ export const data: Product[] = [
         title: 'Product 11',
         description: 'Description for Product 10',
         price: '$31.99',
-        imageUrl: 'https://example.com/product10.jpg',
+        imageUrl: require("../assets/images/banner.png"),
         rating: 4.9,
     },
 ];

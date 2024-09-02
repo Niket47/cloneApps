@@ -19,4 +19,5 @@ export const images = {
     iconSearch:require("../assets/icons/search.png"),
     iconStarYellow:require("../assets/icons/starYellow.png"),
     iconStar:require("../assets/icons/star.png"),
+    iconFavoriteHeart:require("../assets/icons/favorite_heart.png"),
 }
