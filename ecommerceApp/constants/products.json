@@ -1,0 +1,40 @@
+[
+  {
+    "id": "647b9a640c656eb8be498f45",
+    "category": "man",
+    "createdAt": "2023-06-03T19:54:12.026Z",
+    "description": "Product 1 description a long descriptio1",
+    "mainImage": "https://assets.ajio.com/medias/sys_master/root/20240502/7Nwv/66336b1816fd2c6e6ae20596/-473Wx593H-466453554-black-MODEL4.jpg",
+    "name": "Product 1",
+    "owner": "647b8582f3c8e42f3200d26a",
+    "price": 4000,
+    "stock": 10,
+    "discount": "10%",
+    "rating": 4.5,
+    "subImages": [
+      "https://assets.ajio.com/medias/sys_master/root/20240531/OUR3/6659ea5316fd2c6e6a42279a/-473Wx593H-469623243-black-MODEL5.jpg",
+      "https://assets.ajio.com/medias/sys_master/root/20240502/gFYn/66336b1216fd2c6e6ae2057c/-473Wx593H-466453554-black-MODEL.jpg"
+    ],
+    "updatedAt": "2023-06-03T19:54:12.026Z"
+  },
+  {
+    "id": "647b9a650c656eb8be498f46",
+    "category": "woman",
+    "createdAt": "2023-06-03T19:55:12.026Z",
+    "description": "Product 2 description a long descriptio2",
+    "mainImage": "https://assets.ajio.com/medias/sys_master/root/20240315/mqWz/65f46a8605ac7d77bbbafd13/-473Wx593H-443004374-ltgrey-MODEL.jpg",
+    "name": "Product 2",
+    "owner": "647b8582f3c8e42f3200d26b",
+    "price": 3000,
+    "stock": 15,
+    "discount": "15%",
+    "rating": 4.0,
+    "subImages": [
+      "https://assets.ajio.com/medias/sys_master/root/20230714/sOUJ/64b171a3eebac147fc6dba0a/-473Wx593H-443004374-ltgrey-MODEL3.jpg",
+      "https://assets.ajio.com/medias/sys_master/root/20230714/AREd/64b17b8ceebac147fc6e8b91/-473Wx593H-443004374-ltgrey-MODEL4.jpg"
+    ],
+    "updatedAt": "2023-06-03T19:55:12.026Z"
+  }
+]
+
+

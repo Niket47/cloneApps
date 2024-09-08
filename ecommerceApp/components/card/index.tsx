@@ -9,6 +9,7 @@ const { width, height } = Dimensions.get("window")
 
 interface CardsProps {
     // onSelected: (title: string) => void;
+    onPressCard: () => void;
     isGrid: boolean,
     imageUrl: String,
     rating: Number,
@@ -17,7 +18,7 @@ interface CardsProps {
     description: String,
 }
 
-const Card = ({ isGrid, imageUrl, rating, price, title, description }: CardsProps) => {
+const Card = ({ isGrid, imageUrl, rating, price, title, description, onPressCard }: CardsProps) => {
 
 
     const renderStars = (rating: number) => {
@@ -41,7 +42,7 @@ const Card = ({ isGrid, imageUrl, rating, price, title, description }: CardsProp
     };
 
     return isGrid ? (
-        <TouchableOpacity style={[styles.itemContainerRow]}>
+        <TouchableOpacity onPress={onPressCard} style={[styles.itemContainerRow]}>
             <View style={{
                 flexDirection: "row",
                 flex: 1
@@ -77,7 +78,8 @@ const Card = ({ isGrid, imageUrl, rating, price, title, description }: CardsProp
                 <TouchableOpacity style={{
                     position: "absolute",
                     right: -1,
-                    bottom: -10
+                    bottom: -10,
+                    zIndex: 100
                 }}>
                     <View style={styles.heartContainer}>
                         <Image source={images.iconFavoriteHeart} style={{
@@ -101,7 +103,8 @@ const Card = ({ isGrid, imageUrl, rating, price, title, description }: CardsProp
                     <TouchableOpacity style={{
                         position: "absolute",
                         right: -2,
-                        bottom: -20
+                        bottom: -20,
+                        zIndex: 100,
                     }}>
                         <View style={styles.heartContainer}>
                             <Image source={images.iconFavoriteHeart} style={{

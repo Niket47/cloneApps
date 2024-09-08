@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "name": "Nik",
+    "userName": "nik123",
+    "email": "nik@example.com",
+    "profileImage": "https://example.com/images/users/nik123.jpg",
+    "phone": "+1234567890",
+    "addresses": [
+      {
+        "id": "a1",
+        "type": "Home",
+        "addressLine1": "123 Main St",
+        "addressLine2": "Apt 4B",
+        "city": "New York",
+        "state": "NY",
+        "zipCode": "10001",
+        "country": "USA"
+      }
+    ],
+    "paymentMethods": [
+      {
+        "id": "pm1",
+        "cardHolderName": "Nik Smith",
+        "cardNumber": "**** **** **** 1234",
+        "expiryDate": "12/25",
+        "cardType": "Visa"
+      }
+    ],
+    "wishlist": [],
+    "cart": [],
+    "orders": []
+  },
+  {
+    "id": "2",
+    "name": "Nik",
+    "userName": "nik123",
+    "email": "nik@example.com",
+    "profileImage": "https://example.com/images/users/nik123.jpg",
+    "phone": "+1234567890",
+    "addresses": [
+      {
+        "id": "a1",
+        "type": "Home",
+        "addressLine1": "123 Main St",
+        "addressLine2": "Apt 4B",
+        "city": "New York",
+        "state": "NY",
+        "zipCode": "10001",
+        "country": "USA"
+      }
+    ],
+    "paymentMethods": [
+      {
+        "id": "pm1",
+        "cardHolderName": "Nik Smith",
+        "cardNumber": "**** **** **** 1234",
+        "expiryDate": "12/25",
+        "cardType": "Visa"
+      }
+    ],
+    "wishlist": [],
+    "cart": [],
+    "orders": []
+  }
+]

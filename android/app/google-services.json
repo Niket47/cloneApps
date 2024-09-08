@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "79822860815",
+    "project_id": "ecommerceapp-c9dd0",
+    "storage_bucket": "ecommerceapp-c9dd0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79822860815:android:c5568bb3d8c12fd424697a",
+        "android_client_info": {
+          "package_name": "com.learning"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7ilPcyjkuYBb28FGUn4HzzQ9GeZGwmIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

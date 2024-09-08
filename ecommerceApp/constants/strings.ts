@@ -118,3 +118,4 @@ export const data: Product[] = [
         rating: 4.9,
     },
 ];
+

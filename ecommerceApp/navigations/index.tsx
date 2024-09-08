@@ -2,6 +2,7 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../screens/home';
 import Shop from '../screens/shop';
 import Bag from '../screens/bag';
@@ -10,14 +11,19 @@ import Profile from '../screens/profile';
 import { images } from '../constants/images';
 import { normalize } from '../utils/globalStyles';
 import { Colors } from '../constants/colors';
+import ProductDetails from '../screens/productDetails';
+import SignUp from '../screens/authScreens/signup';
+import Login from '../screens/authScreens/login';
 
 const RootNavigation = () => {
 
+
+  const Stack = createStackNavigator();
   const Tab = createBottomTabNavigator();
 
 
-  return (
-    <NavigationContainer>
+  function BottomTabs() {
+    return (
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
@@ -86,6 +92,21 @@ const RootNavigation = () => {
             }
           }} />
       </Tab.Navigator>
+    );
+  }
+
+
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Login' screenOptions={{
+        headerShown: false,
+      }}>
+        <Stack.Screen name="BottomTabs" component={BottomTabs} />
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ProductDetails" component={ProductDetails} />
+      </Stack.Navigator>
     </NavigationContainer>
   )
 }

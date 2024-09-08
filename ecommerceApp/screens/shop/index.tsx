@@ -11,10 +11,12 @@ import { images } from '../../constants/images'
 import { normalize } from '../../utils/globalStyles'
 import Card from '../../components/card'
 import ShoppingCategories from '../../components/shoppingCategories'
+import { useIsFocused } from '@react-navigation/native'
 
 const { width, height } = Dimensions.get("window")
 
 const Shop = ({ navigation }: any) => {
+  const isFocused = useIsFocused()
 
   const [selectedCategory, setSelectedCategory] = useState<String | null>("")
   const [isGridView, setIsGridView] = useState<boolean>(true);
@@ -28,14 +30,13 @@ const Shop = ({ navigation }: any) => {
 
   useEffect(() => {
     setCategory("")
-  }, [])
+  }, [isFocused])
 
   const handleCategoryPress = (category: string) => {
-    console.log('Selected Category:', category);
+    console.log('Selected Category:', category?.title);
     setCategory(category?.title)
   };
 
-  // console.log(category,"---category")
 
   const renderItem = ({ item }: { item: Product }) => {
     return (
@@ -46,6 +47,7 @@ const Shop = ({ navigation }: any) => {
         price={item.price}
         title={item.title}
         description={item.description}
+        onPressCard={() => navigation.navigate("ProductDetails", { productData: item })}
       />
     )
   }
@@ -58,7 +60,6 @@ const Shop = ({ navigation }: any) => {
       }}
         onSearch={() => null}
       />
-
       {category == "" && <ShoppingCategories onCategoryPress={handleCategoryPress} />}
 
       {category && <>
@@ -104,10 +105,4 @@ const Shop = ({ navigation }: any) => {
 }
 
 export default Shop
-
-const styles = StyleSheet.create({
-  container: {
-    borderBottomWidth: 0.5
-  }
-})
 
