@@ -1,5 +1,5 @@
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PermissionModal from '../permissionModal'
 import { handleImagePicker } from '../../utils/globalFunctions'
 import { requestCameraPermission, requestGalleryPermission } from '../../utils/placeCalls'
@@ -10,18 +10,21 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { Colors } from '../../constants/colors'
 
 
+interface ImageUploadViewProps {
+    ImagesData: string[] | any;
+}
 
 
-const ImageUploadView = () => {
-
+const ImageUploadView = ({ ImagesData }: ImageUploadViewProps) => {
     const [isType, setIsType] = useState<String | null>("camera")
     const [isVisible, setIsVisible] = useState<Boolean>(false)
-
     const [imageUriList, setImageUriList] = useState<any | null>([])
-
     const [imagesList, setImagesList] = useState<any | null>([])
 
-    // console.log(imagesList, "--imagesList")
+
+    useEffect(() => {
+        ImagesData(imageUriList);
+    }, [imagesList, imageUriList])
 
 
     const pickImage = async (type: 'camera' | 'gallery'): Promise<void> => {
@@ -38,6 +41,7 @@ const ImageUploadView = () => {
                 const imageUri = pickedImage?.uri?.split('/').pop() || '';
                 const localUri = pickedImage?.uri
                 setImagesList((p: any) => [...p, localUri])
+                setImageUriList((p: any) => [...p, imageUri])
             } catch (error) {
                 console.log('Error picking image:', error);
             }
@@ -47,10 +51,12 @@ const ImageUploadView = () => {
     };
 
 
-    const onDeleteImage = (ind: any) => {
-        const temp = imagesList.filter((item: any) => item == ind)
-        setImagesList(temp)
-    }
+    const onDeleteImage = (ind: number) => {
+        const temp = imagesList.filter((item: any, index: number) => index !== ind);
+        const temps = imageUriList.filter((item: any, index: number) => index !== ind);
+        setImagesList(temp);
+        setImageUriList(temps)
+    };
 
 
     return (
@@ -125,7 +131,7 @@ const styles = StyleSheet.create({
         fontSize: Fonts_Size._14,
         fontFamily: Fonts.regular,
         paddingBottom: 5,
-        color:Colors.black
+        color: Colors.black
     },
     imageView: {
         backgroundColor: "pink",

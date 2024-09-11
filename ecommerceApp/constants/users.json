@@ -27,40 +27,65 @@
         "cardType": "Visa"
       }
     ],
-    "wishlist": [],
-    "cart": [],
-    "orders": []
-  },
-  {
-    "id": "2",
-    "name": "Nik",
-    "userName": "nik123",
-    "email": "nik@example.com",
-    "profileImage": "https://example.com/images/users/nik123.jpg",
-    "phone": "+1234567890",
-    "addresses": [
+    "wishlist": [
       {
-        "id": "a1",
-        "type": "Home",
-        "addressLine1": "123 Main St",
-        "addressLine2": "Apt 4B",
-        "city": "New York",
-        "state": "NY",
-        "zipCode": "10001",
-        "country": "USA"
+        "id": "647b9a640c656eb8be498f45",
+        "category": "man",
+        "createdAt": "2023-06-03T19:54:12.026Z",
+        "description": "Product 1 description a long descriptio1",
+        "mainImage": "https://assets.ajio.com/medias/sys_master/root/20240502/7Nwv/66336b1816fd2c6e6ae20596/-473Wx593H-466453554-black-MODEL4.jpg",
+        "name": "Product 1",
+        "owner": "647b8582f3c8e42f3200d26a",
+        "price": 4000,
+        "stock": 10,
+        "discount": "10%",
+        "rating": 4.5,
+        "subImages": [
+          "https://assets.ajio.com/medias/sys_master/root/20240531/OUR3/6659ea5316fd2c6e6a42279a/-473Wx593H-469623243-black-MODEL5.jpg",
+          "https://assets.ajio.com/medias/sys_master/root/20240502/gFYn/66336b1216fd2c6e6ae2057c/-473Wx593H-466453554-black-MODEL.jpg"
+        ],
+        "updatedAt": "2023-06-03T19:54:12.026Z"
       }
     ],
-    "paymentMethods": [
+    "cart": [
       {
-        "id": "pm1",
-        "cardHolderName": "Nik Smith",
-        "cardNumber": "**** **** **** 1234",
-        "expiryDate": "12/25",
-        "cardType": "Visa"
+        "id": "647b9a640c656eb8be498f45",
+        "category": "man",
+        "createdAt": "2023-06-03T19:54:12.026Z",
+        "description": "Product 1 description a long descriptio1",
+        "mainImage": "https://assets.ajio.com/medias/sys_master/root/20240502/7Nwv/66336b1816fd2c6e6ae20596/-473Wx593H-466453554-black-MODEL4.jpg",
+        "name": "Product 1",
+        "owner": "647b8582f3c8e42f3200d26a",
+        "price": 4000,
+        "stock": 10,
+        "discount": "10%",
+        "rating": 4.5,
+        "subImages": [
+          "https://assets.ajio.com/medias/sys_master/root/20240531/OUR3/6659ea5316fd2c6e6a42279a/-473Wx593H-469623243-black-MODEL5.jpg",
+          "https://assets.ajio.com/medias/sys_master/root/20240502/gFYn/66336b1216fd2c6e6ae2057c/-473Wx593H-466453554-black-MODEL.jpg"
+        ],
+        "updatedAt": "2023-06-03T19:54:12.026Z"
       }
     ],
-    "wishlist": [],
-    "cart": [],
-    "orders": []
+    "orders": [
+      {
+        "id": "647b9a640c656eb8be498f45",
+        "category": "man",
+        "createdAt": "2023-06-03T19:54:12.026Z",
+        "description": "Product 1 description a long descriptio1",
+        "mainImage": "https://assets.ajio.com/medias/sys_master/root/20240502/7Nwv/66336b1816fd2c6e6ae20596/-473Wx593H-466453554-black-MODEL4.jpg",
+        "name": "Product 1",
+        "owner": "647b8582f3c8e42f3200d26a",
+        "price": 4000,
+        "stock": 10,
+        "discount": "10%",
+        "rating": 4.5,
+        "subImages": [
+          "https://assets.ajio.com/medias/sys_master/root/20240531/OUR3/6659ea5316fd2c6e6a42279a/-473Wx593H-469623243-black-MODEL5.jpg",
+          "https://assets.ajio.com/medias/sys_master/root/20240502/gFYn/66336b1216fd2c6e6ae2057c/-473Wx593H-466453554-black-MODEL.jpg"
+        ],
+        "updatedAt": "2023-06-03T19:54:12.026Z"
+      }
+    ]
   }
 ]

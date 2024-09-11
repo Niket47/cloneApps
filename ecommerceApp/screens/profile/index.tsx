@@ -8,16 +8,40 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import ButtonPrimary from '../../components/buttonPrimary'
 import ImageUploadView from '../../components/imageUploadView'
 import { Colors } from '../../constants/colors'
+import axios from 'axios'
+import { API_URL } from "@env"
+import uuid from 'react-native-uuid';
+import ProductForm from '../../components/productForm'
+import showToast from '../../components/showMessage'
 
 
 const Profile = () => {
+  const [isLoading, setIsLoading] = useState(false)
+  const postDataToFirebase = async (payload: any) => {
+    try {
+      setIsLoading(true)
+      const response = await axios.post(
+        `${API_URL}/products.json`,
+        payload
+      );
+      setIsLoading(false)
+      if (response.data) {
+        showToast({
+          title: "Data successfully posted",
+          type: "success"
+        })
+      }
+      console.log('Data successfully posted:', response.data);
+    } catch (error) {
+      setIsLoading(false)
+      showToast({
+        title: "Error posting data",
+        type: "error"
+      })
+      console.error('Error posting data:', error);
+    }
+  };
 
-  const [name, setName] = useState<string | null>("")
-  const [description, setDescription] = useState<string | null>("")
-  const [category, setCategory] = useState<String | null>("")
-  const [price, setPrice] = useState<string | null>("")
-  const [stock, setStock] = useState<string | null>("")
-  const [discount, setDiscount] = useState<string | null>("")
 
 
   return (
@@ -25,82 +49,8 @@ const Profile = () => {
       <View style={{
         paddingHorizontal: 15
       }}>
-        <KeyboardAwareScrollView>
-          <View style={styles.productContainer}>
-            <Text style={styles.titleText}>Enter product details</Text>
-          </View>
-          <View style={{
-            marginVertical: 5
-          }}>
-            <Input
-              value={name}
-              label={"name"}
-              onChangeText={(t) => setName(t)}
-            />
-          </View>
-          <View style={{
-            marginVertical: 5
-          }}>
-            <Input
-              value={description}
-              label={"description"}
-              onChangeText={(t) => setDescription(t)}
-            />
-          </View>
-          <View style={{
-            marginVertical: 5
-          }}>
-            <Input
-              value={category}
-              label={"category"}
-              onChangeText={(t) => setCategory(t)}
-            />
-          </View>
-          <View style={{
-            marginVertical: 5
-          }}>
-            <Input
-              value={price}
-              label={"price"}
-              onChangeText={(t) => setPrice(t)}
-            />
-          </View>
-          <View style={{
-            marginVertical: 5
-          }}>
-            <Input
-              value={stock}
-              label={"stock"}
-              onChangeText={(t) => setStock(t)}
-            />
-          </View>
-          <View style={{
-            marginVertical: 5
-          }}>
-            <Input
-              value={discount}
-              label={"discount"}
-              onChangeText={(t) => setDiscount(t)}
-            />
-          </View>
+        <ProductForm onSubmit={postDataToFirebase} />
 
-          <View style={{}}>
-            <ImageUploadView />
-          </View>
-
-
-
-
-          <View style={{
-            marginTop: 20
-          }}>
-            <ButtonPrimary
-              title={"Submit"}
-              onButtonPress={() => null}
-            />
-          </View>
-
-        </KeyboardAwareScrollView>
       </View>
     </SafeAreaViewComp>
   )

@@ -13,29 +13,69 @@ import ButtonPrimary from '../../../components/buttonPrimary';
 import { Colors } from '../../../constants/colors';
 import { Fonts, Fonts_Size } from '../../../constants/fonts';
 import { normalize } from '../../../utils/globalStyles';
+import auth from '@react-native-firebase/auth';
+import SafeAreaViewComp from '../../../components/SafeAreaViewComp';
+import Loader from '../../../components/loader';
+import showToast from '../../../components/showMessage';
 
-const SignUp = ({ navigation }:any) => {
+const SignUp = ({ navigation }: any) => {
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
     const [reTypePassword, setReTypePassword] = useState("")
-    const [checked, setChecked] = useState(false);
+    const [isLoading, setIsLoading] = useState(false)
 
     const [isErrors, setIsErrors] = useState({
         field: "",
         message: ""
     })
 
-    const checkEmail = (e:any) => {
+    const checkEmail = (e: any) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(e)
     }
 
-    const isTerm = (e:any) => {
-        console.log(e, "--")
-    }
+    const signUpUser = async (email: string, password: string): Promise<void> => {
+        setIsLoading(true)
+        try {
+            const userCredential = await auth().createUserWithEmailAndPassword(email, password);
+            console.log(userCredential,"---userCredential")
+            setIsLoading(false)
+            if (userCredential?.additionalUserInfo?.isNewUser) {
+                showToast({
+                    type: "success",
+                    title: "success"
+                })
+            } else {
+                showToast({
+                    type: "error",
+                    title: "error"
+                })
+            }
+        } catch (error: any) {
+            setIsLoading(false)
+            showToast({
+                type: "error",
+                title: error?.code
+            })
+            if (error?.code === 'auth/email-already-in-use') {
+                console.log('That email address is already in use!');
+            } else if (error?.code === 'auth/invalid-email') {
+                console.log('That email address is invalid!');
+            } else {
+                console.log('Error creating user:', error);
+            }
+        }
+    };
 
-    const onSubmit = () => {
+
+
+    const onSubmit = async () => {
+        console.log("object")
+        // await signUpUser("james047@yopmail.com", "admin@123")
+        await signUpUser("jamess04372@yopmail.com", "admin@123")
+
+        return
         let newErrors = {
             field: "",
             message: ""
@@ -64,73 +104,76 @@ const SignUp = ({ navigation }:any) => {
             setIsErrors(newErrors);
         } else {
             console.log("Form submitted successfully");
+            signUpUser("james047@yopmail.com", "admin@123")
         }
     }
 
 
     return (
-        <KeyboardAvoidingView
-            behavior={Platform.OS == 'ios' ? 'padding' : null}
-            keyboardVerticalOffset={Platform.select({ ios: 80, android: 500 })}
-            style={styles.container}>
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                <View style={styles.inner}>
-                    <Text style={styles.header}>Sign Up</Text>
-                    <View>
+        <SafeAreaViewComp statusBarBg={Colors.white}>
+            {isLoading && <Loader />}
+            <KeyboardAvoidingView
+                behavior={Platform.OS == 'ios' ? 'padding' : null}
+                keyboardVerticalOffset={Platform.select({ ios: 80, android: 500 })}
+                style={styles.container}>
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                    <View style={styles.inner}>
+                        <Text style={styles.header}>Sign Up</Text>
                         <View>
-                            <Input
-                                label={"Name"}
-                                onChangeText={(t) => {
-                                    setName(t);
-                                    isErrors.field == "name" && setIsErrors("")
-                                }}
-                                value={name}
+                            <View>
+                                <Input
+                                    label={"Name"}
+                                    onChangeText={(t) => {
+                                        setName(t);
+                                        isErrors.field == "name" && setIsErrors("")
+                                    }}
+                                    value={name}
                                 // isError={isErrors.field == "name"}
-                            />
-                            <View style={styles.errorFiled}>
-                                {isErrors.field == "name" && <Text style={styles.errorText}>{isErrors.message}</Text>}
+                                />
+                                <View style={styles.errorFiled}>
+                                    {isErrors.field == "name" && <Text style={styles.errorText}>{isErrors.message}</Text>}
+                                </View>
                             </View>
-                        </View>
-                        <View>
-                            <Input label={"Email"}
-                                onChangeText={(t) => {
-                                    setEmail(t);
-                                    isErrors.field == "email" && setIsErrors("")
-                                }}
-                                value={email}
+                            <View>
+                                <Input label={"Email"}
+                                    onChangeText={(t) => {
+                                        setEmail(t);
+                                        isErrors.field == "email" && setIsErrors("")
+                                    }}
+                                    value={email}
                                 // isError={isErrors.field == "email"}
-                            />
-                            <View style={styles.errorFiled}>
-                                {isErrors.field == "email" && <Text style={styles.errorText}>{isErrors.message}</Text>}
+                                />
+                                <View style={styles.errorFiled}>
+                                    {isErrors.field == "email" && <Text style={styles.errorText}>{isErrors.message}</Text>}
+                                </View>
                             </View>
-                        </View>
-                        <View>
-                            <Input label={"Password"}
-                                onChangeText={(t) => {
-                                    setPassword(t);
-                                    isErrors.field == "password" && setIsErrors("")
-                                }}
-                                value={password}
+                            <View>
+                                <Input label={"Password"}
+                                    onChangeText={(t) => {
+                                        setPassword(t);
+                                        isErrors.field == "password" && setIsErrors("")
+                                    }}
+                                    value={password}
                                 // isError={isErrors.field == "password"}
-                            />
-                            <View style={styles.errorFiled}>
-                                {isErrors.field == "password" && <Text style={styles.errorText}>{isErrors.message}</Text>}
+                                />
+                                <View style={styles.errorFiled}>
+                                    {isErrors.field == "password" && <Text style={styles.errorText}>{isErrors.message}</Text>}
+                                </View>
                             </View>
-                        </View>
-                        <View>
-                            <Input label={"Retype-Password"}
-                                onChangeText={(t) => {
-                                    setReTypePassword(t);
-                                    isErrors.field == "reTypePassword" && setIsErrors("")
-                                }}
-                                value={reTypePassword}
+                            <View>
+                                <Input label={"Retype-Password"}
+                                    onChangeText={(t) => {
+                                        setReTypePassword(t);
+                                        isErrors.field == "reTypePassword" && setIsErrors("")
+                                    }}
+                                    value={reTypePassword}
                                 // isError={isErrors.field == "reTypePassword"}
-                            />
-                            <View style={styles.errorFiled}>
-                                {isErrors.field == "reTypePassword" && <Text style={styles.errorText}>{isErrors.message}</Text>}
+                                />
+                                <View style={styles.errorFiled}>
+                                    {isErrors.field == "reTypePassword" && <Text style={styles.errorText}>{isErrors.message}</Text>}
+                                </View>
                             </View>
-                        </View>
-                        {/* <View style={[, {
+                            {/* <View style={[, {
                             width: "100%",
                             alignItems: 'center',
                             paddingLeft: 5,
@@ -148,25 +191,26 @@ const SignUp = ({ navigation }:any) => {
                                 }]}>Terms of Service and Privacy Policy</Text>
                             </View>
                         </View> */}
-                    </View>
+                        </View>
 
-                    <View style={styles.btnContainer}>
-                        <ButtonPrimary title="Sign Up" onButtonPress={onSubmit} />
-                        <View style={[, {
-                            justifyContent: "center",
-                            paddingTop: 5,
-                            flexDirection:"row",
-                            alignItems:"center",
-                        }]}>
-                            <Text style={styles.toText}>Already have an account? </Text>
-                            <Text onPress={() => {
-                                navigation.navigate("Login")
-                            }} style={styles.toTextLogin}>Login</Text>
+                        <View style={styles.btnContainer}>
+                            <ButtonPrimary title="Sign Up" onButtonPress={onSubmit} />
+                            <View style={[, {
+                                justifyContent: "center",
+                                paddingTop: 5,
+                                flexDirection: "row",
+                                alignItems: "center",
+                            }]}>
+                                <Text style={styles.toText}>Already have an account? </Text>
+                                <Text onPress={() => {
+                                    navigation.navigate("Login")
+                                }} style={styles.toTextLogin}>Login</Text>
+                            </View>
                         </View>
                     </View>
-                </View>
-            </TouchableWithoutFeedback>
-        </KeyboardAvoidingView>
+                </TouchableWithoutFeedback>
+            </KeyboardAvoidingView>
+        </SafeAreaViewComp>
     );
 };
 
@@ -186,7 +230,7 @@ const styles = StyleSheet.create({
         fontFamily: Fonts.regularMedium,
         textAlign: "center",
         paddingTop: 55,
-        color:Colors.black
+        color: Colors.black
     },
     textInput: {
         height: 40,

@@ -34,9 +34,10 @@ const styles = StyleSheet.create({
     input: {
         height: normalize(30),
         width: "100%",
-        padding: 10,
-        fontSize: Fonts_Size._14,
-        fontFamily: Fonts.regular
+        paddingLeft: 10,
+        fontSize: Fonts_Size._15,
+        // fontFamily: Fonts.regular,
+        // backgroundColor: "pink"
     },
     container: {
         backgroundColor: "#F9F9F9",

@@ -14,6 +14,7 @@ import { Colors } from '../constants/colors';
 import ProductDetails from '../screens/productDetails';
 import SignUp from '../screens/authScreens/signup';
 import Login from '../screens/authScreens/login';
+import Splash from '../screens/authScreens/splash';
 
 const RootNavigation = () => {
 
@@ -28,6 +29,7 @@ const RootNavigation = () => {
         screenOptions={{
           headerShown: false,
           tabBarActiveTintColor: Colors.brandColor,
+          tabBarHideOnKeyboard:true
         }}>
         <Tab.Screen name="Home" component={Home}
           options={{
@@ -99,9 +101,10 @@ const RootNavigation = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Login' screenOptions={{
+      <Stack.Navigator initialRouteName='Splash' screenOptions={{
         headerShown: false,
       }}>
+        <Stack.Screen name="Splash" component={Splash}/>
         <Stack.Screen name="BottomTabs" component={BottomTabs} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Login" component={Login} />
